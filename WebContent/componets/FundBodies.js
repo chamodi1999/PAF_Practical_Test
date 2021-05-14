@@ -20,7 +20,7 @@ $(document).on("click", "#btnSave", function(event) {
 	}
 	// If valid------------------------
 	var type = ($("#hidFundBodiesIDSave").val() == "") ? "POST" : "PUT";
-	console.log($("#formFundBodies").serialize());
+	console.log(type);
 	$.ajax({
 		url : "FundBodiesAPI",
 		type : type,
@@ -37,8 +37,11 @@ $(document).on(
 		"click",
 		".btnUpdate",
 		function(event) {
+			/*
 			$("#hidFundBodiesIDSave").val( 
-					$(this).closest("tr").find('#hidFundBodiesIDUpdate').val());
+					$(this).closest("tr").find('#hidFundBodiesIDDUpdate').val());
+			*/
+			 $("#hidFundBodiesIDSave").val($(this).closest("tr").find('#hidFundBodiesIDDUpdate').val());
 			$("#FundBodiesID")
 					.val($(this).closest("tr").find('td:eq(0)').text());
 			$("#FundBodiesName")
